@@ -34,7 +34,7 @@ No need to review any of this before the workshop:
 ##### Required:
 
 1. I highly suggest using [c9.io](https://c9.io) instead of or along side your own computer environment.  This is so you can understand the issues that the attendees may be having.
-    1. Sign up for a free account [here](https://c9.io/web/sign-up/free).
+    1. Follow the setup for c9.io [here](SETUP.md).
     2. c9.io uses Ubuntu with Python 2.7.6 and virtualenv already installed.  There is a text editor/IDE as well as a Terminal environment that attendees will get familiar with.
     3. I'm using c9.io rather than being bogged down in setting up various different machines remotely :)  I am in no way affiliated with them, though! Just a huge fan :)
 2. We will be using IRC.  Note that my nickname on IRC is "roguelynn".
