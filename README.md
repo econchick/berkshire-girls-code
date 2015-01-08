@@ -20,7 +20,7 @@ No need to review any of this before the workshop:
 1. SOMETIME BEFORE THE EVENT: Create an account and setup your workspace on c9.io.  Follow [these](SETUP.md) instructions!
 2. AT THE START OF THE EVENT - I recommend trying to connect to this chatroom beforehand so you're familiar with it.
     - Join our chatroom by 12:45pm EST so we can have a smooth start!
-    - Connect to our chatroom [here](http://webchat.freenode.net?channels=%23berkshire-girls-code&uio=OT10cnVlde)
+    - Connect to our chatroom [here](http://webchat.freenode.net/?channels=%23berkshire-gc-code)
         - Choose whatever nickname you'd like
         - Do *not* check the box "Auth to services"
         - Enter the reCAPTCHA code
@@ -38,13 +38,13 @@ No need to review any of this before the workshop:
     2. c9.io uses Ubuntu with Python 2.7.6 and virtualenv already installed.  There is a text editor/IDE as well as a Terminal environment that attendees will get familiar with.
     3. I'm using c9.io rather than being bogged down in setting up various different machines remotely :)  I am in no way affiliated with them, though! Just a huge fan :)
 2. We will be using IRC.  Note that my nickname on IRC is "roguelynn".
-    1. If you already use IRC, we will be in the #berkshire-girls-code channel on Freenode.
+    1. If you already use IRC, we will be in the #berkshire-gc-code channel on Freenode.
     2. If you do not use IRC and/or have not set it up, you can either:
-        1. **[EASY]** Use the webchat [here](http://webchat.freenode.net?channels=%23berkshire-girls-code&uio=OT10cnVlde) - just choose a Nickname, enter the reCAPTCHA code and click 'connect'.  I suggest this if you don't think you'll use IRC again anytime soon, or just don't want to wrestle with the setup.
-        2. **[INTERMEDIATE]** Follow the setup steps [here](http://www.pyladies.com/blog/irc-resources/) then connect to the '#berkshire-girls-code' channel.  I suggest this if you plan on using IRC in the future.
+        1. **[EASY]** Use the webchat [here](http://webchat.freenode.net/?channels=%23berkshire-gc-code) - just choose a Nickname, enter the reCAPTCHA code and click 'connect'.  I suggest this if you don't think you'll use IRC again anytime soon, or just don't want to wrestle with the setup.
+        2. **[INTERMEDIATE]** Follow the setup steps [here](http://www.pyladies.com/blog/irc-resources/) then connect to the '#berkshire-gc-code' channel.  I suggest this if you plan on using IRC in the future.
 
 ##### Optional:
-
+b
 If you want to get familiar with the course beforehand, feel free to check out the materials listed below.
 
 In the second half of the workshop, we will be making a micro Flask site.  If you want to try it out, here's how to set it up (on your c9.io account, and/or your local computer).
