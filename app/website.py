@@ -30,7 +30,7 @@ def playlist():
         return render_template('playlist.html')
 
     if request.method == "POST":
-        username = request.form.get('sp-user')
+        username = request.form.get('spotifyname')
         app.logger.debug("Username: {0}".format(username))
 
         # try to get from Cache first
@@ -63,7 +63,7 @@ def playlist():
             cache.set(username + '-bucket-data', bucket_data, timeout=10 * 60)
 
         # create a bar chart with the bucket_data!
-        return render_template("results.html", results=bucket_data)
+        return render_template("playlist.html", results=bucket_data)
 
 
 @app.route('/word-cloud/', methods=["GET", "POST"])
@@ -71,7 +71,7 @@ def word_cloud():
     if request.method == "GET":
         return render_template("wordcloud.html")
     if request.method == "POST":
-        username = request.form.get('sp-user')
+        username = request.form.get('spotifyname')
         word_data = cache.get(username + '-word-data')
         if word_data is None:
             access_token = app.config.get("access_token")

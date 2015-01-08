@@ -120,22 +120,10 @@ iframe {
 
 
 .searchbox {
-  text-align: center;
-  width:600px;
-  height:50px;
-  position:absolute;
-  left:50%;
-  top:50%;
-  margin:-100px 0 0 -300px;
-  font-size: 18px;
+  width: 100px;
 }
 
-.submit-button {
-  position:absolute;
-  left:50%;
-  top:50%;
-  margin:0 0 0 -50px;
-}
+
 
 .resizedbox {
   width: 100px;
@@ -182,12 +170,14 @@ input {
 
 .navbar-custom {
   background: rgba(0, 0, 0, 0.75);
-  border: none;
-  border-radius: 0;
 }
 
 .results {
   position: relative;
   top: 50%;
   transform: translateY(200%);
+}
+
+.jumbotron {
+  background-color: transparent;
 }

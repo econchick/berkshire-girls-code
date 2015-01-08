@@ -16,14 +16,24 @@
 </head>
 
 <body>
-    <div class="navbar navbar-custom" role="navigation">
-        <a href="/" style="color:rgb(158, 202, 59);text-decoration:none;font-size:30px">Music Me: {{ g.name }}</a>
-        <p style="color:white;padding-right:10px;font-size:20px;">Berkshire Girls Code - January 15, 2015</p>
+    {% set navibar = [
+        ("/", "home", "Home"),
+        ("/playlist/", "playlist", "Playlist"),
+        ("/word-cloud/", "word-cloud", "Word Cloud")
+
+    ] -%}
+    {% set active_page = active_page|default('home') -%}
+    <div class="navbar">
+        <ul class="nav nav-tabs">
+            {% for href, id, caption in navibar %}
+                <li {% if id == active_page %} class="active"{% endif %} role="presentation"><a href="{{ href|e }}">{{ caption|e }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
     <div class="containter site-content">
-            {% block search %}{% endblock %}
-            {% block results %}{% endblock %}
+            {% block content %}{% endblock %}
     </div>
+    <script src="{{ url_for('static', filename='js/randomUser.js')}}"></script>
 
 </body>
 </html>

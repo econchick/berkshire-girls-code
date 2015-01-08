@@ -1,24 +1,29 @@
 {% extends "layout.html" %}
-{% block search %}
-  <div class="error_div" id="error_div">
-      <p id="error_p"></p>
-  </div>
-  {% if not results %}
-  <div class="container">
-      <div class="row center-block">
+{% set active_page = "word-cloud" %}
+{% block content %}
+  <div class="container" style="margin-bottom:20px;">
+    <div class="row">
+      <div style="float:none;margin:0 auto;width:50%">
         <form role="form" action="{{ url_for('word_cloud') }}" method='POST' id='sp-user'>
-          <div class="form-group">
-            <input type="text" placeholder="Spotify Username" class="form-control searchbox" name="sp-user"></input>
+          <div class="form-group" style="margin-bottom:20px;">
+            <div class="input-group">
+              <input type="text" placeholder="Spotify Username" class="form-control sp-user" name="spotifyname">
+              <span class="input-group-btn">
+                <input type="button" class="btn btn-default" onclick="fillRandomUser()" id="random-user" value="Random User">
+              </span>
+            </div>
           </div>
-            <button type="submit" class="btn btn-primary submit-button">Visualize Me</button>
+          <div class="form-group" style="margin:auto;width:60%;">
+            <button type="submit" class="btn btn-success btn-block">Create Word Cloud</button>
+          </div>
         </form>
+      </div>
     </div>
   </div>
-  {% else %}
+  {% if results %}
     <div class="container">
       <div class="row center-block">
-        <h1>Results</h1>
-        <div id="card_wordcloud">
+        <div class="well" id="wordcloud">
           <script>
             var fill = d3.scale.category20();
             var artists = {{ results|tojson }};
@@ -71,7 +76,7 @@
                 .start();
 
             function draw(words) {
-              d3.select("#card_wordcloud").append("svg")
+              d3.select("#wordcloud").append("svg")
                   .attr("width", 1100)
                   .attr("height", 500)
                   .attr("class", "wordcloud")
