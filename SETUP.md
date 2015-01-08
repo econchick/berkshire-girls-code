@@ -3,7 +3,7 @@
 ## c9.io setup
 
 1. create an account at [c9.io](https://c9.io/web/sign-up/free) and log in.
-2. Click on "Create New Workspace" in the upper-right corner:
+2. Click on "Create New Workspace" in the upper-left corner:
 	<br/><img src="images/c9io-setup1.png" width="600"/><br/>
 3. Click on "Create a New Workspace":
 	<br/><img src="images/c9io-setup2.png" width="600"/><br/>
