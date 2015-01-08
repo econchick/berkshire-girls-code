@@ -6,7 +6,10 @@ _January 10th, 2015_ - 10am - 2pm PST/1pm - 5pm EST
 
 ## Materials
 
-Coming soon!
+No need to review any of this before the workshop:
+
+* \[INCOMPLETE\] [Workshop](http://nbviewer.ipython.org/gist/econchick/5200d52f9af57cbd040d) - this will be the complete workshop once I've finished the last bit + formatted it better
+* [COMING SOON] A live demo will be found [here](https://berkshire-girls-code.herokuapp.com).
 
 ## Workshop setup
 
@@ -59,6 +62,3 @@ $ pip install -r requirements.txt
 # To run the micro site:
 $ python run.py  # then navigate to http://localhost:5000
 ```
-
-[COMING SOON] A live demo will be found [here](https://berkshire-girls-code.herokuapp.com).
-
