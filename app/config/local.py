@@ -13,8 +13,8 @@ LOGGING = "DEBUG"
 LOGGING_OUTPUT = "berkshires_girls_code.log"
 
 OAUTH = {
-    'client_id': 'f5ba18a10b1f4b02b18d261c534429f9',
-    'client_secret': 'ef76a471ba624ab8b7d1c7b03916d6d4',
+    'client_id': '',
+    'client_secret': '',
     'redirect_uri': DEPLOY_URL + 'callback',
     'token_url': 'https://accounts.spotify.com/api/token',
     'authorize_url': 'https://accounts.spotify.com/authorize'
