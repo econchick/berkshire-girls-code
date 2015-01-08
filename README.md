@@ -14,7 +14,7 @@ Coming soon!
 
 **PLEASE**: Read through all these instructions sometime before the event (at least a couple of hours, preferrably a day or two before) so you understand what needs to happen for the workshop!
 
-1. SOMETIME BEFORE THE EVENT: Account on [c9.io](https://c9.io) - sign up for a free account [here](https://c9.io/web/sign-up/free)
+1. SOMETIME BEFORE THE EVENT: Create an account and setup your workspace on c9.io.  Follow [these](SETUP.md) instructions!
 2. AT THE START OF THE EVENT - I recommend trying to connect to this chatroom beforehand so you're familiar with it.
     - Join our chatroom by 12:45pm EST so we can have a smooth start!
     - Connect to our chatroom [here](http://webchat.freenode.net?channels=%23berkshire-girls-code&uio=OT10cnVlde)
