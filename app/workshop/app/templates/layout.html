@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Music Me: {{ g.name }}</title>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/jquery/tipTip.css') }}"/>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/custom.css') }}"/>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,300,200'/>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/d3.v3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-1.10.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery.tipTip.minified.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+</head>
+
+<body>
+    {% set navibar = [
+        ("/", "home", "Home"),
+        ("/playlist/", "playlist", "Playlist"),
+        ("/word-cloud/", "word-cloud", "Word Cloud")
+
+    ] -%}
+    {% set active_page = active_page|default('home') -%}
+    <div class="navbar">
+        <ul class="nav nav-tabs">
+            {% for href, id, caption in navibar %}
+                <li {% if id == active_page %} class="active"{% endif %} role="presentation"><a href="{{ href|e }}">{{ caption|e }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="containter site-content">
+            {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/randomUser.js')}}"></script>
+
+</body>
+</html>

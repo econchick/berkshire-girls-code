@@ -6,18 +6,13 @@ import base64
 import datetime
 import json
 from operator import itemgetter
-import os
 
-import matplotlib.pyplot as plt
-import numpy as np
 import requests
 
 
 class SpotifyApiError(Exception):
     pass
 
-
-# TODO: if user not found, handle error
 
 # Get OAuth token
 def get_spotify_oauth_token(client_id, client_secret, token_url):
@@ -35,47 +30,6 @@ def get_spotify_oauth_token(client_id, client_secret, token_url):
         response_error = json.loads(response.text).get('error')
         msg = "Error getting OAuth token: {e}".format(e=response_error)
         raise SpotifyApiError(msg)
-
-
-# get playlists
-def get_user_playlists(token, username):
-    headers = {"Authorization": "Bearer %s" % token}
-    playlist_url = "https://api.spotify.com/v1/users/{0}/playlists".format(
-        username)
-    response = requests.get(url=playlist_url, headers=headers)
-
-    if response.status_code == requests.codes.ok:
-        return response.json()
-    else:
-        response_error = json.loads(response.text).get('error')
-        msg = "Error getting {0}'s playlists: {1}".format(username,
-                                                          response_error)
-        raise SpotifyApiError(msg)
-
-
-# get tracks of playlists
-def get_playlist_track_urls(playlists, username):
-    track_urls = []
-    items = playlists.get('items')
-    for item in items:
-        if item.get('owner').get('id') != username:
-            continue
-        else:
-            tracks = item.get('tracks')
-            tracks_url = tracks.get('href')
-            track_urls.append(tracks_url)
-    return track_urls
-
-
-def get_tracks(track_urls, token):
-    headers = {"Authorization": "Bearer {t}".format(t=token)}
-    track_data = []
-    for url in track_urls:
-        response = requests.get(url=url, headers=headers)
-        if response.status_code == requests.codes.ok:
-            items = response.json().get('items')
-            track_data.append(items)
-    return track_data
 
 
 # NOTE: the more "pythonic" way to do this is:
@@ -107,20 +61,19 @@ def parse_track_data(track_data):
                 artists = ttrack.get('artists')
                 album = ttrack.get('album').get('name')
                 href = ttrack.get('href')
-                added_at_str = parse_raw_date(added_at_raw).strftime("%Y-%m")
                 artist_names = [n.get('name') for n in artists]
-                data = {"album": album, "href": href, "artists": artist_names[0], "name": name}
+                data = {
+                    "album": album,
+                    "href": href,
+                    "artists": artist_names[0],
+                    "name": name
+                }
                 song_data.append(data)
             else:
                 continue
 
     parsed_track_data = sorted(parsed_track_data, key=itemgetter(1))
     return parsed_track_data, song_data
-
-
-def save_json_data(json_data, output_file):
-    with open(output_file, 'w') as f:
-        json.dump(json_data, f)
 
 
 def create_buckets(beg_date, end_date):
@@ -160,27 +113,80 @@ def sort_track_data(track_data):
     return cumulated_data
 
 
-def create_bar_chart(track_data):
+#####
+# The following functions are what you will need to implement
+#####
 
-    labels = track_data.keys()
-    values = track_data.values()
+# Implement the function to get a user's playlists
+def get_user_playlists(token, username):
+    # NOTE: this function takes two arguments: token, and username
 
-    width = 0.3
-    ind = np.arange(len(values))
-    fig = plt.figure(figsize=(len(labels) * 1.8, 10))
+    # Construct a dictionary that contains authorization headers
 
-    # Generate a subplot and put our values onto it.
-    ax = fig.add_subplot(1, 1, 1)
-    ax.bar(ind, values, width, align='center')
+    # Create a string for the URL that we will make a request to
 
-    plt.ylabel("Number of songs added")
-    plt.xlabel("Month Buckets")
-    ax.set_xticks(ind + 0.3)
-    ax.set_xticklabels(labels)
-    fig.autofmt_xdate()
-    plt.grid(True)
+    # Send a GET request to the URL we previously defined with the header
+    # dictionary we also previously defined
 
-    static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-    img_dir = os.path.join(static_dir, 'images')
-    img_file = os.path.join(img_dir, "MusicTimeline")
-    plt.savefig(img_file, dpi=72)
+    # To be good coders, we should handle if anything went wrong when we
+    # sent that request to the URL
+
+    # If the response was ok, then return the JSON data of the response
+
+    # Otherwise, we must have gotten an error, so let's return an error
+    # message through Python's "raise"
+
+    # DELETE the "pass" word when you're ready to implement
+    pass
+
+
+# Implement the function to get tracks URLs of the user's playlists
+def get_playlist_track_urls(playlists, username):
+    # NOTE: this function takes two arguments: playlists (which will be the
+    # JSON data returned from get_user_playlists function), and the username
+
+    # Construct an empty list so we can add to it
+
+    # Grab the 'items' element of the previously returned JSON
+
+    # Let's iterate over each item, and only add playlist items whose owner
+    # is the same as the current user (the user could otherwise just be
+    # following someone else's playlist)
+
+        # Skip over any playlists the user doesn't actuall own
+        # Otherwise,
+            # First get 'tracks' from the item
+
+            # Then get the 'href' or the url of the particular track
+
+            # And add it to our empty list
+
+    # After we're finished iterating over each item, return the list of
+    # track URLs
+
+    # DELETE the "pass" word when you're ready to implement
+    pass
+
+
+# Implement the function to request track data from the user's playlists
+def get_tracks(track_urls, token):
+    # NOTE: This function will take in two arguments: the track URLs
+    # returned from get_playlist_track_urls, and the token
+
+    # Construct a dictionary that contains authorization headers
+
+    # Construct an empty list so we can add to it
+
+    # Iterate over each of the URLs we got earlier
+        # For each URL, send a GET request to the URL with the header
+        # dictionary that we defined earlier
+
+        # If the response to the request was OK, then:
+            # Grab the values from the "items" key from the JSON response
+            # Then add all that data of the track to our list
+
+    # After we're finished iterating over each item, return the list
+    # of track data
+
+    # DELETE the "pass" word when you're ready to implement
+    pass

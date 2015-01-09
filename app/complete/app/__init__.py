@@ -41,15 +41,16 @@ else:
     stream_handler.setLevel(app.config['LOGGING'])
     app.logger.addHandler(stream_handler)
 
-import website  # NOQA
 
-from oauth import GeneralSpotifyOAuth
+from spotify import get_spotify_oauth_token
 # General OAuth Setup
-oauth_client = GeneralSpotifyOAuth()
-encoded_auth = oauth_client.get_encoded_auth()
-headers, data = oauth_client.setup_basic_request(encoded_auth)
+client_id = app.config.get("OAUTH").get('client_id')
+client_secret = app.config.get("OAUTH").get('client_secret')
+token_url = app.config.get("OAUTH").get('token_url')
 
 app.logger.debug("Getting OAuth Token")
-access_token = oauth_client.get_oauth_token(headers, data)
+access_token = get_spotify_oauth_token(client_id, client_secret, token_url)
 app.logger.debug("OAuth Token Received")
 app.config["access_token"] = access_token
+
+import website  # NOQA
