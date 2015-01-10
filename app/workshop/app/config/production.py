@@ -11,6 +11,9 @@ TESTING = False
 DEPLOY_URL = "https://berkshire-girls-code.herokuapp.com"
 PREFERRED_URL_SCHEME = 'https'
 LOGGING = "INFO"
+HOST = '0.0.0.0'
+PORT = int(os.environ.get('PORT', '5000'))
+
 
 # OAUTH client_secret should be in an env var defined on the system
 OAUTH = {

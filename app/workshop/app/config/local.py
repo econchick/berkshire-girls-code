@@ -11,6 +11,8 @@ DEBUG = True
 DEPLOY_URL = "http://localhost:5000/"
 LOGGING = "DEBUG"
 LOGGING_OUTPUT = "berkshires_girls_code.log"
+HOST = os.environ['IP']
+PORT = int(os.environ['PORT'])
 
 OAUTH = {
     'client_id': '',
