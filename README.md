@@ -8,7 +8,7 @@ _January 10th, 2015_ - 10am - 2pm PST/1pm - 5pm EST
 
 No need to review any of this before the workshop:
 
-* \[INCOMPLETE\] [Workshop](http://nbviewer.ipython.org/gist/econchick/5200d52f9af57cbd040d) - this will be the complete workshop once I've finished the last bit + formatted it better
+* [Full Workshop](http://nbviewer.ipython.org/gist/econchick/5200d52f9af57cbd040d) - I will be teaching off of this
 * A live demo of the final app can be found [here](https://berkshire-girls-code.herokuapp.com).
 
 ## Workshop setup
