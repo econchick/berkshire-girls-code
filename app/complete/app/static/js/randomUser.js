@@ -1,6 +1,6 @@
 var fillRandomUser = (function() {
     function getRandomUser(form) {
-        var popularUsers = Array("econchick", "sp-10");
+        var popularUsers = Array("spotify_germany", "magerleagues", "spotify", "mobymus", "sonymusicuk", "warnermusicus");
         var item = popularUsers[Math.floor(Math.random()*popularUsers.length)];
         $(form).find(".sp-user").each(function(index, el){
             var $el = $(el),
